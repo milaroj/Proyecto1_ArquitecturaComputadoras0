@@ -1,3 +1,28 @@
+/*
+**
+** Copyright 2020 OpenHW Group
+**
+** Licensed under the Solderpad Hardware Licence, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     https://solderpad.org/licenses/
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+**
+*******************************************************************************
+**
+** Sanity test for the CV32E40P core.  Reads the MVENDORID, MISA, MARCHID and
+**                                     MIMPID CSRs and prints some useful (?)
+**                                     messages to stdout.  Will fail if these
+**                                     CSRs do not match expected values.
+**
+*******************************************************************************
+*/
 #include <stdio.h>
 #include <time.h>
 
@@ -66,13 +91,7 @@ int main() {
     
     printf("\nMatriz B (muestra):\n");
     printf("  B[0][0] = %.0f,  B[0][1] = %.0f,  B[0][2] = %.0f\n\n", B[0][0], B[0][1], B[0][2]);
-    
-    // ========================================================================
-    // MEDICIÓN DE TIEMPO: Inicio
-    // ========================================================================
-    // clock() devuelve el número de "ticks" del procesador desde que inició
-    clock_t inicio = clock();
-    
+  
     // ========================================================================
     // AQUÍ SE REALIZA LA MULTIPLICACIÓN
     // ========================================================================
@@ -82,9 +101,7 @@ int main() {
 
     // ========================================================================
     // MOSTRAR RESULTADOS
-    // ========================================================================
-    printf("✓ Multiplicación completada!\n");
-    printf("  Tiempo de ejecución: %.6f segundos\n\n", tiempo);
+    
     
     // Mostrar algunos valores del resultado para verificar
     printf("Matriz C (resultado - muestra):\n");
